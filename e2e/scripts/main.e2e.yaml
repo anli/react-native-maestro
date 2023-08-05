@@ -1,4 +1,6 @@
 appId: com.anlitz.maestro
+tags:
+  - smoke
 ---
 - launchApp:
     appId: 'com.anlitz.maestro'

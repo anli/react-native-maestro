@@ -8,12 +8,14 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "e2e-ios-build": "(cd ios && xcrun xcodebuild -scheme 'Maestro' -workspace 'Maestro.xcworkspace' -configuration Debug -sdk 'iphonesimulator' -destination 'generic/platform=iOS Simulator' -derivedDataPath build)",
-    "e2e-ios-test": "source .env && xcrun simctl install Booted ios/build/Build/Products/Debug-iphonesimulator/maestro.app && maestro --device $E2E_IOS_DEVICE_ID test e2e/scripts/main.e2e.yaml",
-    "e2e-ios-record": "source .env && xcrun simctl install Booted ios/build/Build/Products/Debug-iphonesimulator/maestro.app && maestro --device $E2E_IOS_DEVICE_ID record e2e/scripts/main.e2e.yaml",
-    "e2e-android-build": "(cd android && ./gradlew assembleDebug)",
-    "e2e-android-test": "source .env && adb install android/app/build/outputs/apk/debug/app-debug.apk &&  maestro --device $E2E_ANDROID_DEVICE_ID test e2e/scripts/main.e2e.yaml",
-    "e2e-android-record": "source .env && adb install android/app/build/outputs/apk/debug/app-debug.apk &&  maestro --device $E2E_ANDROID_DEVICE_ID record e2e/scripts/main.e2e.yaml"
+    "e2e-ios-build": "(cd ios && xcrun xcodebuild -scheme 'Maestro' -workspace 'Maestro.xcworkspace' -configuration Release -sdk 'iphonesimulator' -destination 'generic/platform=iOS Simulator' -derivedDataPath build)",
+    "e2e-ios-test": "source .local.env && xcrun simctl install Booted ios/build/Build/Products/Release-iphonesimulator/Maestro.app && maestro --device $E2E_IOS_DEVICE_ID test e2e/scripts/main.e2e.yaml",
+    "e2e-ios-record": "source .local.env && xcrun simctl install Booted ios/build/Build/Products/Release-iphonesimulator/Maestro.app && maestro --device $E2E_IOS_DEVICE_ID record e2e/scripts/main.e2e.yaml",
+    "e2e-ios-cloud": "source .local.env && maestro cloud --apiKey $E2E_MAESTRO_CLOUD_API_KEY ios/build/Build/Products/Release-iphonesimulator/Maestro.app e2e/scripts/main.e2e.yaml",
+    "e2e-android-build": "(cd android && ./gradlew assembleRelease)",
+    "e2e-android-test": "source .local.env && adb install android/app/build/outputs/apk/release/app-release.apk &&  maestro --device $E2E_ANDROID_DEVICE_ID test e2e/scripts/main.e2e.yaml",
+    "e2e-android-record": "source .local.env && adb install android/app/build/outputs/apk/release/app-release.apk &&  maestro --device $E2E_ANDROID_DEVICE_ID record e2e/scripts/main.e2e.yaml",
+    "e2e-android-cloud": "source .local.env && maestro cloud --apiKey $E2E_MAESTRO_CLOUD_API_KEY android/app/build/outputs/apk/release/app-release.apk e2e/scripts/main.e2e.yaml"
   },
   "dependencies": {
     "react": "18.2.0",
