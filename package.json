@@ -11,11 +11,12 @@
     "e2e-ios-build": "(cd ios && xcrun xcodebuild -scheme 'Maestro' -workspace 'Maestro.xcworkspace' -configuration Release -sdk 'iphonesimulator' -destination 'generic/platform=iOS Simulator' -derivedDataPath build)",
     "e2e-ios-test": "source .env.local && xcrun simctl install Booted ios/build/Build/Products/Release-iphonesimulator/Maestro.app && maestro --device $E2E_IOS_DEVICE_ID test e2e/scripts/main.e2e.yaml",
     "e2e-ios-record": "source .env.local && xcrun simctl install Booted ios/build/Build/Products/Release-iphonesimulator/Maestro.app && maestro --device $E2E_IOS_DEVICE_ID record e2e/scripts/main.e2e.yaml",
-    "e2e-ios-cloud": "source .env.local && maestro cloud --apiKey $E2E_MAESTRO_CLOUD_API_KEY ios/build/Build/Products/Release-iphonesimulator/Maestro.app e2e/scripts/main.e2e.yaml",
+    "e2e-ios-cloud": "source .env.local && maestro cloud --apiKey $MAESTRO_API_KEY ios/build/Build/Products/Release-iphonesimulator/Maestro.app e2e/scripts/main.e2e.yaml",
     "e2e-android-build": "(cd android && ./gradlew assembleRelease)",
     "e2e-android-test": "source .env.local && adb install android/app/build/outputs/apk/release/app-release.apk &&  maestro --device $E2E_ANDROID_DEVICE_ID test e2e/scripts/main.e2e.yaml",
     "e2e-android-record": "source .env.local && adb install android/app/build/outputs/apk/release/app-release.apk &&  maestro --device $E2E_ANDROID_DEVICE_ID record e2e/scripts/main.e2e.yaml",
-    "e2e-android-cloud": "source .env.local && maestro cloud --apiKey $E2E_MAESTRO_CLOUD_API_KEY android/app/build/outputs/apk/release/app-release.apk e2e/scripts/main.e2e.yaml"
+    "e2e-android-cloud": "source .env.local && maestro cloud --apiKey $MAESTRO_API_KEY android/app/build/outputs/apk/release/app-release.apk e2e/scripts/main.e2e.yaml",
+    "flashlight-android-cloud": "source .env.local && flashlight cloud --apiKey $FLASHLIGHT_API_KEY --app android/app/build/outputs/apk/release/app-release.apk --test e2e/scripts/main.e2e.yaml --duration 10000"
   },
   "dependencies": {
     "react": "18.2.0",
