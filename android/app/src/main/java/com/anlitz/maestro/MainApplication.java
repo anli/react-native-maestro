@@ -1,4 +1,4 @@
-package com.maestro;
+package com.anlitz.maestro;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

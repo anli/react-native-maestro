@@ -1,0 +1,10 @@
+appId: com.anlitz.maestro
+---
+- launchApp:
+    appId: 'com.anlitz.maestro'
+    clearState: true
+    clearKeychain: true # optional: clear *entire* iOS keychain
+    stopApp: false # optional (true by default): stop the app before launching it
+- scrollUntilVisible:
+    element: Follow us on Twitter.*
+    direction: DOWN

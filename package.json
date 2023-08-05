@@ -1,5 +1,5 @@
 {
-  "name": "Maestro",
+  "name": "maestro",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -7,7 +7,11 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "e2e-ios-build": "(cd ios && xcrun xcodebuild -scheme 'Maestro' -workspace 'Maestro.xcworkspace' -configuration Debug -sdk 'iphonesimulator' -destination 'generic/platform=iOS Simulator' -derivedDataPath build)",
+    "e2e-ios-test": "source .env && xcrun simctl install Booted ios/build/Build/Products/Debug-iphonesimulator/maestro.app && maestro --device $E2E_IOS_DEVICE_ID test e2e/scripts/main.e2e.yaml",
+    "e2e-android-build": "(cd android && ./gradlew assembleDebug)",
+    "e2e-android-test": "source .env && adb install android/app/build/outputs/apk/debug/app-debug.apk &&  maestro --device $E2E_ANDROID_DEVICE_ID test e2e/scripts/main.e2e.yaml"
   },
   "dependencies": {
     "react": "18.2.0",
