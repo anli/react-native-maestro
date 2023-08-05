@@ -16,6 +16,7 @@
     "e2e-android-test": "source .env.local && adb install android/app/build/outputs/apk/release/app-release.apk &&  maestro --device $E2E_ANDROID_DEVICE_ID test e2e/scripts/main.e2e.yaml",
     "e2e-android-record": "source .env.local && adb install android/app/build/outputs/apk/release/app-release.apk &&  maestro --device $E2E_ANDROID_DEVICE_ID record e2e/scripts/main.e2e.yaml",
     "e2e-android-cloud": "source .env.local && maestro cloud --apiKey $MAESTRO_API_KEY android/app/build/outputs/apk/release/app-release.apk e2e/scripts/main.e2e.yaml",
+    "flashlight-android-report": "flashlight test --bundleId com.anlitz.maestro --testCommand 'npm run e2e-android-test' --duration 10000 --resultsFilePath flashlight-results.json && flashlight report flashlight-results.json",
     "flashlight-android-cloud": "source .env.local && flashlight cloud --apiKey $FLASHLIGHT_API_KEY --app android/app/build/outputs/apk/release/app-release.apk --test e2e/scripts/main.e2e.yaml --duration 10000"
   },
   "dependencies": {
