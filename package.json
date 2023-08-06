@@ -1,8 +1,9 @@
 {
   "name": "maestro",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
+    "release": "source .env.local && GITHUB_TOKEN=$GITHUB_TOKEN npx semantic-release",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "lint": "eslint .",
@@ -29,6 +30,8 @@
     "@babel/runtime": "^7.20.0",
     "@react-native/eslint-config": "^0.72.2",
     "@react-native/metro-config": "^0.72.9",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
     "@tsconfig/react-native": "^3.0.0",
     "@types/react": "^18.0.24",
     "@types/react-test-renderer": "^18.0.0",
